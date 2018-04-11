@@ -3,6 +3,6 @@ RUN go get upspin.io/...
 RUN CGO_ENABLED=0 go install upspin.io/cmd/upspinserver
 
 # FROM ubuntu:latest
-FROM scratch
+FROM alpine:latest
 COPY --from=0 go/bin/upspinserver /upspinserver
 ENTRYPOINT ["/upspinserver"]
