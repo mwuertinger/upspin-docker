@@ -1,6 +1,6 @@
 services:
   - docker
 script:
-  - echo $DOCKER_CONFIG | base64 -d > ~/.docker/config.json
+  - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
   - docker build -t mwuertinger/upspinserver .
   - docker push mwuertinger/upspinserver
