@@ -1,4 +1,4 @@
-FROM golang:1.10
+FROM golang:1.11
 RUN go get upspin.io/...
 RUN CGO_ENABLED=0 go install upspin.io/cmd/upspinserver
 
