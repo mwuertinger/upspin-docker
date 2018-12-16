@@ -1,5 +1,5 @@
 FROM golang:1.11
-RUN go get upspin.io/...
+RUN go get upspin.io/cmd/upspinserver
 RUN CGO_ENABLED=0 go install upspin.io/cmd/upspinserver
 
 FROM alpine:latest
