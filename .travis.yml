@@ -1,8 +1,9 @@
 services:
   - docker
 script:
+  - set -e
   - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
   - docker build -t mwuertinger/upspinserver .
   - docker tag mwuertinger/upspinserver mwuertinger/upspinserver:$TRAVIS_BUILD_NUMBER
-  - echo $TRAVIS_BRANCH
-  - test $TRAVIS_BRANCH = "master" && docker push mwuertinger/upspinserver
+  - BRANCH=$(git rev-parse --abbrev-ref HEAD)
+  - test $BRANCH = "master" && docker push mwuertinger/upspinserver
