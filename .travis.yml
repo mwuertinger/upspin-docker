@@ -3,6 +3,5 @@ services:
 script:
   - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
   - docker build -t mwuertinger/upspinserver .
-  - docker build -t mwuertinger/upspinserver
   - docker tag mwuertinger/upspinserver mwuertinger/upspinserver:$TRAVIS_BUILD_NUMBER
   - test $TRAVIS_BRANCH = "master" && docker push mwuertinger/upspinserver
