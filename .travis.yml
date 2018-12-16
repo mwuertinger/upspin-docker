@@ -6,4 +6,4 @@ script:
   - docker build -t mwuertinger/upspinserver .
   - docker tag mwuertinger/upspinserver mwuertinger/upspinserver:$TRAVIS_BUILD_NUMBER
   - BRANCH=$(git rev-parse --abbrev-ref HEAD)
-  - test $BRANCH = "master" && docker push mwuertinger/upspinserver
+  - test $BRANCH != "master" || docker push mwuertinger/upspinserver
